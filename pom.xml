@@ -7,9 +7,10 @@
 	<groupId>org.github.inject</groupId>
 	<artifactId>inject-test</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<modules>
 		<module>guice</module>
 		<module>spring</module>
-    	</modules>
+    </modules>
 </project>
