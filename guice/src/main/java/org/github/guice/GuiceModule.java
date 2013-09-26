@@ -1,12 +1,12 @@
 package org.github.guice;
 
+import javax.inject.Singleton;
+
 import com.google.inject.Binder;
 import com.google.inject.TypeLiteral;
 import com.google.inject.matcher.Matcher;
 import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
-
-import javax.inject.Singleton;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,13 +16,11 @@ import javax.inject.Singleton;
  */
 public class GuiceModule implements com.google.inject.Module{
 
-    @Override
     public void configure(Binder binder) {
         binder.bind(IEmailer.class).to(EmailerImpl.class);
         binder.bind(INotifierService.class).to(NotifierServiceImpl.class);
 
         Matcher matcher = new Matcher() {
-            @Override
             public boolean matches(Object o) {
                 boolean result = false;
                 if( o != null ){
@@ -33,19 +31,16 @@ public class GuiceModule implements com.google.inject.Module{
                 return result;
             }
 
-            @Override
             public Matcher and(Matcher other) {
                 return null;
             }
 
-            @Override
             public Matcher or(Matcher other) {
                 return null;
             }
         };
 
         TypeListener typeListener = new TypeListener() {
-            @Override
             public <I> void hear(TypeLiteral<I> type, TypeEncounter<I> encounter) {
 
             }
