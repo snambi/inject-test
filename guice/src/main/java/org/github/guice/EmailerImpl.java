@@ -9,6 +9,8 @@ import javax.inject.Singleton;
 @Named
 public class EmailerImpl implements IEmailer {
 
+    private String version;
+
     @PostConstruct
     public void startup(){
         System.out.println("starting " + EmailerImpl.class.getCanonicalName());
