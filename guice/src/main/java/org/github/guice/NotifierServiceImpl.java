@@ -1,11 +1,10 @@
 package org.github.guice;
 
-import com.google.inject.Singleton;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 @Singleton
 @Named
