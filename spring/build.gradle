@@ -1,0 +1,24 @@
+
+dependencies{
+	compile 'org.springframework:spring-core:3.2.4.RELEASE','org.springframework:spring-context:3.2.4.RELEASE', 'javax.inject:javax.inject:1'
+}
+
+task hello{
+	doLast{
+		println 'Hello World!'
+	}
+}
+
+task intro( dependsOn: 'name') << {
+	println "i'm new"
+}
+
+task name() << {
+	println "my name is nambi"
+}
+
+task upper << {
+	String somestring = 'mY_nAme'
+	println "Original: " + somestring
+	println "Upper case: " + somestring.toUpperCase()
+}
