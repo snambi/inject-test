@@ -1,0 +1,19 @@
+task hello{
+	doLast{
+		println 'Hello World!'
+	}
+}
+
+task intro( dependsOn: 'name') << {
+	println "i'm new"
+}
+
+task name() << {
+	println "my name is nambi"
+}
+
+task upper << {
+	String somestring = 'mY_nAme'
+	println "Original: " + somestring
+	println "Upper case: " + somestring.toUpperCase()
+}
