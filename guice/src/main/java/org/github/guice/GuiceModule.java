@@ -1,15 +1,5 @@
 package org.github.guice;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import javax.inject.Singleton;
-import javax.annotation.PostConstruct;
-
 import com.google.inject.Binder;
 import com.google.inject.Module;
 import com.google.inject.TypeLiteral;
@@ -17,6 +7,15 @@ import com.google.inject.matcher.Matcher;
 import com.google.inject.spi.InjectionListener;
 import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Singleton;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,7 +26,8 @@ import com.google.inject.spi.TypeListener;
 @SuppressWarnings("restriction")
 public class GuiceModule implements Module{
 	
-	final List<Singleton> singletons = Collections.synchronizedList(new ArrayList());
+	static Set<Class> singletons = Collections.synchronizedSet( new HashSet<Class>() );
+
 
 	public void configure(Binder binder) {
 		

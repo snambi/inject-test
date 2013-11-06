@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Lazy;
 
 @Singleton
 @Named
-@Lazy(true)
 public class NotifierServiceImpl implements INotifierService {
 
 	private IEmailer service;
